@@ -14,7 +14,7 @@
   "changelogUrl": "",
   "modules": [
     {
-      "slug": "sheepmodulo",
+      "slug": "Modulo",
       "name": "Modulo",
       "description": "Adjustable modulo operator for octave-stripping and waveshaping",
       "tags": [
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "slug": "sheepopabinia",
+      "slug": "Opabinia",
       "name": "Opabinia",
       "description": "Basic bassdrum with folding and distortion",
       "tags": [
