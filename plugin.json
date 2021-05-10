@@ -1,7 +1,7 @@
 {
   "slug": "Extratone",
   "name": "Extratone",
-  "version": "1.2.0",
+  "version": "1.1.1",
   "license": "GPL-3.0-or-later",
   "brand": "XTRTN",
   "author": "Eater of Sheep",
@@ -34,9 +34,10 @@
     {
       "slug": "Splitterburst",
       "name": "Splitterburst",
-      "description": "Temporary Tempo Multiplier",
+      "description": "Tempo multiplier and gate generator, perfect for snare-rushes",
       "tags": [
-        "Clock modulator"
+        "Clock modulator",
+	"utility"
       ]
     }
   ]
