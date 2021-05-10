@@ -11,6 +11,7 @@ void init(Plugin* p) {
 	// p->addModel(modelMyModule);
 	p->addModel(modelModulo);
 	p->addModel(modelOpabinia);
+	p->addModel(modelSplitterburst);
 
 
 	// Any other plugin initialization may go here.
