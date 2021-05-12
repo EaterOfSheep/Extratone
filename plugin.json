@@ -37,7 +37,15 @@
       "description": "Tempo multiplier and gate generator, perfect for snare-rushes",
       "tags": [
         "Clock modulator",
-	"utility"
+        "utility"
+      ]
+    },
+    {
+      "slug": "Puzzlebox",
+      "name": "Puzzlebox",
+      "description": "Confusing mystery module. Fun.",
+      "tags": [
+        "logic"
       ]
     }
   ]
