@@ -26,10 +26,12 @@ struct Splitterburst : Module {
 		GATE_OUTPUT,
 		SOLO_OUTPUT,
 		CLOCK_OUTPUT,
+		EOB_OUTPUT,
 		NUM_OUTPUTS
 	};
 	enum LightIds {
-		ON_LIGHT,
+		ON_LIGHT1,
+		ON_LIGHT2,
 		NUM_LIGHTS
 	};
 
@@ -45,6 +47,7 @@ struct Splitterburst : Module {
 	dsp::PulseGenerator plainPulse;	
 	dsp::PulseGenerator clockPulse;
 	dsp::PulseGenerator soloPulse;
+	dsp::PulseGenerator eobPulse;
 	
 	dsp::SchmittTrigger clockTrigger;
 	dsp::SchmittTrigger stepTrigger;
@@ -58,6 +61,7 @@ struct Splitterburst : Module {
 	float step = 0;
 	bool trigon = false;
 	bool gateon = false;
+	bool prevon=false;
 
 	void process(const ProcessArgs& args) override {
 	
@@ -110,17 +114,22 @@ struct Splitterburst : Module {
 			if(step>=steps){step=0;trigon=false;}
 		}
 	}
-	
+	if(prevon&&!on){
+		eobPulse.trigger();
+	}
 
 	
-	lights[ON_LIGHT].value=(on);
+	lights[ON_LIGHT1].value=(on);
+	lights[ON_LIGHT2].value=(on);
 	
+	outputs[EOB_OUTPUT].setVoltage((eobPulse.process(args.sampleTime) ? 10.0f : 0.0f));
 	outputs[GATE_OUTPUT].setVoltage(10*on);
 	outputs[PLAIN_OUTPUT].setVoltage((plainPulse.process(args.sampleTime) ? 10.0f : 0.0f));
 	outputs[SOLO_OUTPUT].setVoltage((soloPulse.process(args.sampleTime) ? 10.0f : 0.0f));
 	outputs[CLOCK_OUTPUT].setVoltage((clockPulse.process(args.sampleTime) ? 10.0f : 0.0f));
 	outputs[STEP_OUTPUT].setVoltage(step*10/steps);
 	
+	prevon=on;
 	
 	}
 };
@@ -136,7 +145,9 @@ struct SplitterburstWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		
-		addChild(createLight<MediumLight<GreenLight>>(mm2px(Vec(16, 20)), module, Splitterburst::ON_LIGHT));
+		addChild(createLight<MediumLight<GreenLight>>(mm2px(Vec(4, 12)), module, Splitterburst::ON_LIGHT1));
+
+		addChild(createLight<MediumLight<GreenLight>>(mm2px(Vec(28, 12)), module, Splitterburst::ON_LIGHT2));
 
 
 		
@@ -144,8 +155,8 @@ struct SplitterburstWidget : ModuleWidget {
 		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(24, 100)), module, Splitterburst::MULTI_PARAM));
 		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(24, 90)), module, Splitterburst::MULTI_ATT));
 		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(12, 90)), module, Splitterburst::STEPS_ATT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 80)), module, Splitterburst::MULTI_CV));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(12, 80)), module, Splitterburst::STEPS_CV));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(31, 80)), module, Splitterburst::MULTI_CV));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(5, 80)), module, Splitterburst::STEPS_CV));
 		
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 35)), module, Splitterburst::CLOCK_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 50)), module, Splitterburst::TRIG_INPUT));
@@ -162,6 +173,7 @@ struct SplitterburstWidget : ModuleWidget {
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(12, 116)), module, Splitterburst::SOLO_OUTPUT));		
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(24, 116)), module, Splitterburst::CLOCK_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(18, 79)), module, Splitterburst::EOB_OUTPUT));
 	}
 };
 

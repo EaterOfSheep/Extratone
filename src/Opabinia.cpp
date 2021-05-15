@@ -15,6 +15,7 @@ struct Opabinia : Module {
 		FOLD_PARAM,
 		SQUARE_ATT,
 		FOLD_ATT,
+		FOLDN_PARAM,
 		NUM_PARAMS
 	};
 	enum InputIds {
@@ -25,12 +26,14 @@ struct Opabinia : Module {
 		TRIGGER_INPUT,
 		SQUARE_CV,
 		FOLD_CV,
+		SOUND_INPUT,
 		NUM_INPUTS
 	};
 	enum OutputIds {
 		FDECAY_OUTPUT,
 		ADECAY_OUTPUT,
 		DRUM_OUTPUT,
+		SOUND_OUTPUT,
 		NUM_OUTPUTS
 	};
 	enum LightIds {
@@ -48,6 +51,7 @@ struct Opabinia : Module {
 	float adecay = 1.f;
 	float fold = 0.f;
 	float squareness=0.f;
+	int foldnum = 2;
 	
 	Opabinia() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
@@ -65,6 +69,45 @@ struct Opabinia : Module {
 		configParam(SQUARE_ATT, -1.f, 1.f, 0.f, "");
 		configParam(ADECAY_ATT, -1.f, 1.f, 0.f, "");
 		configParam(FDECAY_ATT, -1.f, 1.f, 0.f, "");
+
+		configParam(FOLDN_PARAM, 1.f, 5.f, 1, "");
+
+
+	}
+
+	float distort(float wave, float squareness, float fold, int foldnum){
+
+		bool folding = true;
+
+		while(foldnum>0&&folding)
+		{
+			folding=false;
+			foldnum--;
+
+			wave=wave*(1.f+fold*2.f);
+			for(int i = 0; i<3; i++){
+				if(wave>1){
+					wave = 1.f-(wave-1.f);
+					folding=true;
+				}
+				if(wave<-1){
+					wave = -1.f-(wave+1.f);
+					folding=true;
+				}
+			}
+		}
+		
+		wave=wave*(1.f+squareness*4.f);
+		if(wave>1){
+			wave = 1.f;
+		}
+		if(wave<-1){
+			wave = -1.f;
+		}
+
+
+	return wave;
+
 	}
 
 	void process(const ProcessArgs& args) override {
@@ -79,7 +122,9 @@ struct Opabinia : Module {
 		
 		fdecay=0.001+fdecay*0.2;
 		adecay=0.001+adecay*0.5;
-		
+	
+		foldnum=params[FOLDN_PARAM].getValue();
+
 		peakfreq=params[FREQ_PARAM].getValue()*std::pow(2.f,inputs[FREQ_CV].getVoltage()*params[FREQ_ATT].getValue());
 		basefreq=params[BASEFREQ_PARAM].getValue()*std::pow(2.f,inputs[BASEFREQ_CV].getVoltage()*params[BASEFREQ_ATT].getValue());
 		
@@ -100,41 +145,31 @@ struct Opabinia : Module {
 	
 		phase += freq * args.sampleTime;
 		if (phase >= 0.5f){phase -= 1.f;}
-		
-		float sine = std::sin(2.f * M_PI * phase);
-		//float square = 2*(phase>0)-1.f;
-		//float mix = square*squareness+sine*(1.f-squareness);
+	
+		float wave = 0.f;
 		
 
-		sine=sine*(1.f+fold*2.f);
-		for(int i = 0; i<9; i++){
-			if(sine>1){
-				sine = 1.f-(sine-1.f);
-			}
-			if(sine<-1){
-				sine = -1.f-(sine+1.f);
-			}
-		}
+		float sine = std::sin(2.f * M_PI * phase); //sine
+
+		wave = sine;
+
+		wave=distort(wave,squareness,fold,foldnum);
 		
-		sine=sine*(1.f+squareness*4.f);
-		if(sine>1){
-			sine = 1.f;
-		}
-		if(sine<-1){
-			sine = -1.f;
-		}
 
 
-
-
+		float sound = inputs[SOUND_INPUT].getVoltage()/5.f;
+		sound = distort(sound,squareness,fold,foldnum);
+		
 		float aratio = std::pow(0.5, args.sampleTime*(1.f/adecay));
 		float fratio = std::pow(0.5, args.sampleTime*(1.f/fdecay));
 		amplitude = amplitude*aratio;
 		freq = (freq-basefreq)*fratio+basefreq;
 		
-		outputs[DRUM_OUTPUT].setVoltage(5.f * amplitude * sine);
+		outputs[DRUM_OUTPUT].setVoltage(5.f * amplitude * wave);
 		outputs[ADECAY_OUTPUT].setVoltage(5.f*amplitude);
 		outputs[FDECAY_OUTPUT].setVoltage(5.f*(freq-basefreq)/(peakfreq-basefreq));
+
+		outputs[SOUND_OUTPUT].setVoltage(5.f*sound);
 	
 	}
 };
@@ -174,11 +209,19 @@ struct OpabiniaWidget : ModuleWidget {
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(12, 45)), module, Opabinia::FOLD_CV));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(12, 80)), module, Opabinia::SQUARE_CV));		
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 30)), module, Opabinia::TRIGGER_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 116)), module, Opabinia::TRIGGER_INPUT));
 		
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(36, 116)), module, Opabinia::DRUM_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(24, 116)), module, Opabinia::FDECAY_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(12, 116)), module, Opabinia::ADECAY_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(39, 116)), module, Opabinia::DRUM_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(29, 116)), module, Opabinia::FDECAY_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(19, 116)), module, Opabinia::ADECAY_OUTPUT));
+
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 30)), module, Opabinia::SOUND_INPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(36, 30)), module, Opabinia::SOUND_OUTPUT));
+
+
+		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(12, 32)), module, Opabinia::FOLDN_PARAM));
+
+
 	}
 };
 
