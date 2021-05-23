@@ -13,6 +13,7 @@ void init(Plugin* p) {
 	p->addModel(modelOpabinia);
 	p->addModel(modelSplitterburst);
 	p->addModel(modelPuzzlebox);
+	p->addModel(modelDarwinism);
 
 
 	// Any other plugin initialization may go here.

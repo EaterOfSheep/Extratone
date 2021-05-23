@@ -11,6 +11,7 @@ extern Model *modelModulo;
 extern Model *modelOpabinia;
 extern Model *modelSplitterburst;
 extern Model *modelPuzzlebox;
+extern Model *modelDarwinism;
 
 // Declare each Model, defined in each module source file
 // extern Model* modelMyModule;

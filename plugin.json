@@ -29,8 +29,8 @@
       "tags": [
         "Drum",
         "Envelope generator",
-	"Distortion",
-	"waveshaper"
+        "Distortion",
+        "waveshaper"
       ]
     },
     {
@@ -48,6 +48,15 @@
       "description": "Confusing mystery module. Fun.",
       "tags": [
         "logic"
+      ]
+    },
+    {
+      "slug": "Darwinism",
+      "name": "Hallucigenia",
+      "description": "Mutating Sequencer",
+      "tags": [
+        "Sequencer",
+        "Random"
       ]
     }
   ]

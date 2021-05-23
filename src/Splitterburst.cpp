@@ -7,6 +7,7 @@ struct Splitterburst : Module {
 		STEPS_ATT,
 		MULTI_ATT,
 		MULTI_PARAM,
+		MULTI64_PARAM,
 		NUM_PARAMS
 	};
 	enum InputIds {
@@ -39,7 +40,7 @@ struct Splitterburst : Module {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 		
 		configParam(STEPS_PARAM, 1.f, 64.f, 4.f, "");
-		configParam(MULTI_PARAM, 1.f, 64.f, 2.f, "");
+		configParam(MULTI_PARAM, 1.f, 16.f, 2.f, "");
 		configParam(MULTI_ATT, -1.f, 1.f, 0.f, "");
 		configParam(STEPS_ATT, -1.f, 1.f, 0.f, "");
 	}
@@ -87,7 +88,11 @@ struct Splitterburst : Module {
 	bool on = (gateon||trigon);
 	
 	float steps = round(clamp(params[STEPS_PARAM].getValue()+inputs[STEPS_CV].getVoltage()*6.4*params[STEPS_ATT].getValue(),1.f,64.f));
-	int multiply = round(clamp(params[MULTI_PARAM].getValue()+inputs[MULTI_CV].getVoltage()*6.4*params[MULTI_ATT].getValue(),1.f,64.f));
+	int multiply = round(clamp(params[MULTI_PARAM].getValue()+inputs[MULTI_CV].getVoltage()*1.6*params[MULTI_ATT].getValue(),1.f,16.f));
+
+	if(params[MULTI64_PARAM].getValue()){
+	multiply=multiply*4;
+	}
 	
 	wait++;
 	timer++;
@@ -151,6 +156,8 @@ struct SplitterburstWidget : ModuleWidget {
 
 
 		
+		addParam(createParamCentered<CKSS>(mm2px(Vec(32, 100)), module, Splitterburst::MULTI64_PARAM));
+
 		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(12, 100)), module, Splitterburst::STEPS_PARAM));
 		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(24, 100)), module, Splitterburst::MULTI_PARAM));
 		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(24, 90)), module, Splitterburst::MULTI_ATT));
