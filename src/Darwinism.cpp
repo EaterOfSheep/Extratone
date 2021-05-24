@@ -168,7 +168,7 @@ struct DarwinismWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Darwinism.svg")));
 
-		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(25,115)), module, Darwinism::VIEWMODE_PARAM));
+		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(40,91)), module, Darwinism::VIEWMODE_PARAM));
 		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(40,73)), module, Darwinism::STEPS_PARAM));
 
 		addParam(createParam<TL1105>(mm2px(Vec(26,45)), module, Darwinism::ZERO_PARAM));
