@@ -3,6 +3,7 @@
 
 struct Darwinism : Module {
 	enum ParamIds {
+		RANGE_PARAM,
 		SAVE_PARAM,
 		LOAD_PARAM,
 		VIEWMODE_PARAM,
@@ -57,9 +58,6 @@ struct Darwinism : Module {
 	dsp::SchmittTrigger onoffTrigger[16];
 	dsp::SchmittTrigger mutateTrigger;
 	dsp::SchmittTrigger resetTrigger;
-	//Add range knob and revert (or save/load?) trigger
-	//
-	//SAVE/LOAD = Survive/Fossil
 
 	Darwinism() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
@@ -69,6 +67,7 @@ struct Darwinism : Module {
 
 		configParam(MUTATIONRATE_PARAM, 0.f, 1.f, 0.5, "");
 		configParam(DENSITY_PARAM, 0.f, 1.f, 0.5, "");
+		configParam(RANGE_PARAM, 0.f, 8.f, 1, "");
 	}
 
 	int viewmode = 0;
@@ -85,6 +84,7 @@ struct Darwinism : Module {
 	void process(const ProcessArgs& args) override {
 
 		viewmode=params[VIEWMODE_PARAM].getValue();
+		range = params[RANGE_PARAM].getValue();
 
 		if(resetTrigger.process(params[RESET_PARAM].getValue()+inputs[RESET_INPUT].getVoltage())){
 			step=0;
@@ -168,8 +168,9 @@ struct DarwinismWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Darwinism.svg")));
 
-		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(40,91)), module, Darwinism::VIEWMODE_PARAM));
+		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(46,87)), module, Darwinism::VIEWMODE_PARAM));
 		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(40,73)), module, Darwinism::STEPS_PARAM));
+		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(46,101)), module, Darwinism::RANGE_PARAM));
 
 		addParam(createParam<TL1105>(mm2px(Vec(26,45)), module, Darwinism::ZERO_PARAM));
 		addParam(createParam<TL1105>(mm2px(Vec(26,55)), module, Darwinism::RANDOM_PARAM));
