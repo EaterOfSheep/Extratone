@@ -19,7 +19,8 @@ struct Darwinism : Module {
 		NOTE_PARAM=ONOFF_PARAM+16,
 		SAVEDONOFF_PARAM=NOTE_PARAM+16,
 		SAVEDNOTE_PARAM=SAVEDONOFF_PARAM+16,
-		NUM_PARAMS=SAVEDNOTE_PARAM+16
+		SNH_PARAM=SAVEDNOTE_PARAM+16,
+		NUM_PARAMS=SNH_PARAM+1
 	};
 	enum InputIds {
 		SAVE_INPUT,
@@ -29,6 +30,7 @@ struct Darwinism : Module {
 		RANDOM_INPUT,
 		MUTATE_INPUT,
 		CLOCK_INPUT,
+		SNH_INPUT,
 		NUM_INPUTS
 	};
 	enum OutputIds {
@@ -50,6 +52,7 @@ struct Darwinism : Module {
 	dsp::PulseGenerator eopPulse;	
 	dsp::PulseGenerator trigPulse;	
 
+	dsp::SchmittTrigger snhTrigger;
 	dsp::SchmittTrigger randomTrigger;
 	dsp::SchmittTrigger clearTrigger;
 	dsp::SchmittTrigger stepTrigger;
@@ -90,9 +93,19 @@ struct Darwinism : Module {
 			step=0;
 		}
 
+		if(snhTrigger.process(inputs[SNH_INPUT].getVoltage())){
+			outputs[NOTE_OUTPUT].setVoltage(range*params[NOTE_PARAM+step].getValue());
+		}
+
 		if(stepTrigger.process(inputs[CLOCK_INPUT].getVoltage())){
 			if(step<params[STEPS_PARAM].getValue()-1){step++;}else{step=0; eopPulse.trigger();}
-			if(params[ONOFF_PARAM +step].getValue()){trigPulse.trigger();}
+
+			if(params[ONOFF_PARAM +step].getValue()){
+				trigPulse.trigger();
+				if(params[SNH_PARAM].getValue()){
+					outputs[NOTE_OUTPUT].setVoltage(range*params[NOTE_PARAM+step].getValue());
+				}
+			}
 		}
 
 		if(saveTrigger.process(params[SAVE_PARAM].getValue()+inputs[SAVE_INPUT].getVoltage())){
@@ -154,8 +167,17 @@ struct Darwinism : Module {
 			
 		}
 
+		if(!params[SNH_PARAM].getValue()&&!inputs[SNH_INPUT].isConnected()){
+			outputs[NOTE_OUTPUT].setVoltage(range*params[NOTE_PARAM+step].getValue());
+		}
+
+		if(snhTrigger.process(inputs[SNH_INPUT].getVoltage())){
+			outputs[NOTE_OUTPUT].setVoltage(range*params[NOTE_PARAM+step].getValue());
+		}
+
+
+
 		outputs[GATE_OUTPUT].setVoltage(10.f*params[ONOFF_PARAM+step].getValue());
-		outputs[NOTE_OUTPUT].setVoltage(range*params[NOTE_PARAM+step].getValue());
 		outputs[STEP_OUTPUT].setVoltage(10.f*step/(params[STEPS_PARAM].getValue()-1.f));
 		outputs[EOP_OUTPUT].setVoltage((eopPulse.process(args.sampleTime) ? 10.0f : 0.0f));
 		outputs[TRIG_OUTPUT].setVoltage((trigPulse.process(args.sampleTime) ? 10.0f : 0.0f));
@@ -180,12 +202,16 @@ struct DarwinismWidget : ModuleWidget {
 		addParam(createParam<TL1105>(mm2px(Vec(54,55)), module, Darwinism::LOAD_PARAM));
 
 
+		addParam(createParamCentered<CKSS>(mm2px(Vec(54, 117)), module, Darwinism::SNH_PARAM));
+
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 48)), module, Darwinism::ZERO_INPUT));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 58)), module, Darwinism::RANDOM_INPUT));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 68)), module, Darwinism::MUTATE_INPUT));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 78)), module, Darwinism::RESET_INPUT));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(49, 48)), module, Darwinism::SAVE_INPUT));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(49, 58)), module, Darwinism::LOAD_INPUT));	
+
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(16, 117)), module, Darwinism::SNH_INPUT));	
 
 
 		addParam(createParam<RoundBlackKnob>(mm2px(Vec(21,101)), module, Darwinism::DENSITY_PARAM));
