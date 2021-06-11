@@ -190,9 +190,9 @@ struct DarwinismWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Darwinism.svg")));
 
-		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(46,87)), module, Darwinism::VIEWMODE_PARAM));
-		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(40,73)), module, Darwinism::STEPS_PARAM));
-		addParam(createParam<RoundBlackSnapKnob>(mm2px(Vec(46,101)), module, Darwinism::RANGE_PARAM));
+		addParam(createParam<XtrtnSnapKnob>(mm2px(Vec(46,87)), module, Darwinism::VIEWMODE_PARAM));
+		addParam(createParam<XtrtnSnapKnob>(mm2px(Vec(40,73)), module, Darwinism::STEPS_PARAM));
+		addParam(createParam<XtrtnSnapKnob>(mm2px(Vec(46,101)), module, Darwinism::RANGE_PARAM));
 
 		addParam(createParam<TL1105>(mm2px(Vec(26,45)), module, Darwinism::ZERO_PARAM));
 		addParam(createParam<TL1105>(mm2px(Vec(26,55)), module, Darwinism::RANDOM_PARAM));
@@ -214,8 +214,8 @@ struct DarwinismWidget : ModuleWidget {
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(16, 117)), module, Darwinism::SNH_INPUT));	
 
 
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(21,101)), module, Darwinism::DENSITY_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(21,87)), module, Darwinism::MUTATIONRATE_PARAM));
+		addParam(createParam<XtrtnKnob>(mm2px(Vec(21,101)), module, Darwinism::DENSITY_PARAM));
+		addParam(createParam<XtrtnKnob>(mm2px(Vec(21,87)), module, Darwinism::MUTATIONRATE_PARAM));
 		//addParam(createParam<TL1105>(mm2px(Vec(25,100)), module, Darwinism::STEP_PARAM));
 
 

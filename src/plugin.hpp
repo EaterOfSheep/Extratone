@@ -7,6 +7,24 @@ using namespace rack;
 // Declare the Plugin, defined in plugin.cpp
 extern Plugin* pluginInstance;
 
+
+
+
+struct XtrtnKnob : app::SvgKnob {
+    XtrtnKnob() {
+        minAngle = -0.83 * M_PI;
+        maxAngle = 0.83 * M_PI;
+        setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/XtrtnKnob.svg")));
+    }
+};
+
+struct XtrtnSnapKnob : XtrtnKnob {
+    XtrtnSnapKnob() {
+        snap = true;
+    }
+};
+
+
 extern Model *modelModulo;
 extern Model *modelOpabinia;
 extern Model *modelSplitterburst;
