@@ -24,6 +24,13 @@ struct XtrtnSnapKnob : XtrtnKnob {
     }
 };
 
+struct XtrtnBlueLight : ModuleLightWidget {
+	XtrtnBlueLight() {
+		firstLightId = 1;
+		this->bgColor = nvgRGB(40, 40, 40);
+		addBaseColor(nvgRGB(25, 150, 255));
+	}
+};
 
 extern Model *modelModulo;
 extern Model *modelOpabinia;
