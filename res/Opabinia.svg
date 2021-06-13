@@ -47,10 +47,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="81.071429"
+     inkscape:cx="115.35714"
      inkscape:cy="116.78571"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      units="mm"
      inkscape:snap-bbox="true"
@@ -112,7 +112,7 @@
          style="stroke-width:0.264583" /></text>
     <g
        aria-label="OBAPINIA"
-       transform="matrix(0.90270257,0,0,0.88622823,0,34.133042)"
+       transform="matrix(0.90270257,0,0,0.88622823,0,36.24971)"
        id="text20793"
        style="font-weight:600;font-size:5.90001px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Semi-Bold';fill:#ffffff;stroke-width:0.147501">
       <path
@@ -144,7 +144,7 @@
        aria-label="DIST-IN/DIST-OUT:"
        id="text3929"
        style="font-weight:600;font-size:3.52777px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Semi-Bold';fill:#ffffff;stroke-width:0.264583"
-       transform="translate(-2.6458334,1.5875)">
+       transform="matrix(0.75977804,0,0,1,6.9125799,1.0583333)">
       <path
          d="m 15.558859,182.21117 h 0.606776 c 0.395111,0 0.631471,-0.0388 0.843138,-0.14464 0.402165,-0.19756 0.638526,-0.62795 0.638526,-1.15358 0,-0.49742 -0.204611,-0.90311 -0.567971,-1.12183 -0.204611,-0.12348 -0.515054,-0.18698 -0.924276,-0.18698 h -0.596193 z m 0.483305,-0.46214 v -1.68275 h 0.09525 c 0.310444,0 0.472722,0.0282 0.624416,0.10584 0.246944,0.127 0.398638,0.40569 0.398638,0.74083 0,0.31397 -0.144639,0.59266 -0.377472,0.71966 -0.144638,0.0776 -0.345721,0.11642 -0.634998,0.11642 z"
          id="path58053" />
@@ -207,7 +207,7 @@
        aria-label="TRIG/ENV(L/S)/DRUM-OUT:"
        id="text26166"
        style="font-weight:600;font-size:3.52777px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Semi-Bold';fill:#ffffff;stroke-width:0.264583"
-       transform="matrix(0.89818083,0,0,1,1.7752048,0)">
+       transform="matrix(0.89818083,0,0,1,1.7752048,0.52916667)">
       <path
          d="m 2.3268153,104.72969 h 0.4833045 v -2.14488 h 0.4833045 v -0.46214 H 1.8435108 v 0.46214 h 0.4833045 z"
          id="path57988" />
