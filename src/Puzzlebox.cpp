@@ -127,12 +127,12 @@ struct PuzzleboxWidget : ModuleWidget {
 		addChild(createLight<MediumLight<GreenLight>>(mm2px(Vec(26, 62)), module, Puzzlebox::FINALE_LIGHT));
 		addChild(createLight<MediumLight<GreenLight>>(mm2px(Vec(22, 62)), module, Puzzlebox::START_LIGHT));
 		
-		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(25, 75)), module, Puzzlebox::BIG_PARAM));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(10, 90)), module, Puzzlebox::SMALL_PARAM));
+		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(25, 75)), module, Puzzlebox::BIG_PARAM));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(10, 90)), module, Puzzlebox::SMALL_PARAM));
 		
-		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(7, 20)), module, Puzzlebox::COM1_PARAM));
-		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(33, 20)), module, Puzzlebox::COM2_PARAM));
-		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(20, 8)), module, Puzzlebox::COM3_PARAM));
+		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(7, 20)), module, Puzzlebox::COM1_PARAM));
+		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(33, 20)), module, Puzzlebox::COM2_PARAM));
+		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(20, 35)), module, Puzzlebox::COM3_PARAM));
 		
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 115)), module, Puzzlebox::RED_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(30, 50)), module, Puzzlebox::MAG_INPUT));

@@ -231,7 +231,7 @@ struct DarwinismWidget : ModuleWidget {
 		for(int y = 0;y<4;y++){
 			for(int x=0;x<4;x++){
 				
-				addChild(createLight<SmallLight<XtrtnBlueLight>>(mm2px(Vec(3+5*x, 16+7*y)), module, Darwinism::STEP_LIGHT+id));
+				addChild(createLight<MediumLight<XtrtnBlueLight>>(mm2px(Vec(3+5*x, 16+7*y)), module, Darwinism::STEP_LIGHT+id));
 
 				id++;
 			}

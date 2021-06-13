@@ -8,6 +8,14 @@ using namespace rack;
 extern Plugin* pluginInstance;
 
 
+struct XtrtnSmallKnob : app::SvgKnob {
+    XtrtnSmallKnob() {
+        minAngle = -0.83 * M_PI;
+        maxAngle = 0.83 * M_PI;
+        setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/XtrtnSmallKnob.svg")));
+    }
+};
+
 
 
 struct XtrtnKnob : app::SvgKnob {

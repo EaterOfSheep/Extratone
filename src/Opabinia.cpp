@@ -189,34 +189,34 @@ struct OpabiniaWidget : ModuleWidget {
 		
 		addParam(createParamCentered<XtrtnKnob>(mm2px(Vec(24, 55)), module, Opabinia::FREQ_PARAM));
 		addParam(createParamCentered<XtrtnKnob>(mm2px(Vec(24, 90)), module, Opabinia::BASEFREQ_PARAM));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(24, 45)), module, Opabinia::FREQ_ATT));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(24, 80)), module, Opabinia::BASEFREQ_ATT));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(24, 45)), module, Opabinia::FREQ_ATT));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(24, 80)), module, Opabinia::BASEFREQ_ATT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 35)), module, Opabinia::FREQ_CV));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 70)), module, Opabinia::BASEFREQ_CV));		
 
 		
 		addParam(createParamCentered<XtrtnKnob>(mm2px(Vec(36, 90)), module, Opabinia::FDECAY_PARAM));
 		addParam(createParamCentered<XtrtnKnob>(mm2px(Vec(36, 55)), module, Opabinia::ADECAY_PARAM));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(36, 80)), module, Opabinia::FDECAY_ATT));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(36, 45)), module, Opabinia::ADECAY_ATT));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(36, 80)), module, Opabinia::FDECAY_ATT));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(36, 45)), module, Opabinia::ADECAY_ATT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(36, 35)), module, Opabinia::ADECAY_CV));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(36, 70)), module, Opabinia::FDECAY_CV));		
 
 		addParam(createParamCentered<XtrtnKnob>(mm2px(Vec(12, 90)), module, Opabinia::SQUARE_PARAM));
 		addParam(createParamCentered<XtrtnKnob>(mm2px(Vec(12, 55)), module, Opabinia::FOLD_PARAM));	
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(12, 80)), module, Opabinia::SQUARE_ATT));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(12, 45)), module, Opabinia::FOLD_ATT));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(12, 80)), module, Opabinia::SQUARE_ATT));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(12, 45)), module, Opabinia::FOLD_ATT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(12, 35)), module, Opabinia::FOLD_CV));	
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(12, 70)), module, Opabinia::SQUARE_CV));		
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 106)), module, Opabinia::TRIGGER_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 113)), module, Opabinia::TRIGGER_INPUT));
 		
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(39, 106)), module, Opabinia::DRUM_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(29, 106)), module, Opabinia::FDECAY_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(19, 106)), module, Opabinia::ADECAY_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(39, 113)), module, Opabinia::DRUM_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(29, 113)), module, Opabinia::FDECAY_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(19, 113)), module, Opabinia::ADECAY_OUTPUT));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 20)), module, Opabinia::SOUND_INPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(36, 20)), module, Opabinia::SOUND_OUTPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 22)), module, Opabinia::SOUND_INPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(36, 22)), module, Opabinia::SOUND_OUTPUT));
 
 
 		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(12, 22)), module, Opabinia::FOLDN_PARAM));
