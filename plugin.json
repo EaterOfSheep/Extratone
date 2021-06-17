@@ -48,7 +48,7 @@
       "description": "Confusing mystery module. Fun.",
       "tags": [
         "logic",
-	"visual"
+        "visual"
       ]
     },
     {
@@ -59,6 +59,12 @@
         "Sequencer",
         "Random"
       ]
+    },
+    {
+      "slug": "Ichneumonid",
+      "name": "Ichneumonid",
+      "description": "Continuous Signal Switcher",
+      "tags": []
     }
   ]
 }
