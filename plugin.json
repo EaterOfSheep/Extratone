@@ -64,7 +64,7 @@
       "slug": "Ichneumonid",
       "name": "Ichneumonid",
       "description": "Switch randomly (or deterministically) between signals without creating discontinuities.",
-      "tags": ["Random","Mixer","Sequencer"]
+      "tags": ["Random","Mixer","Sequencer","Utility"]
     }
   ]
 }

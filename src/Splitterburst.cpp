@@ -150,37 +150,37 @@ struct SplitterburstWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		
-		addChild(createLight<MediumLight<GreenLight>>(mm2px(Vec(4, 12)), module, Splitterburst::ON_LIGHT1));
+		addChild(createLight<MediumLight<XtrtnBlueLight>>(mm2px(Vec(4, 12)), module, Splitterburst::ON_LIGHT1));
 
-		addChild(createLight<MediumLight<GreenLight>>(mm2px(Vec(28, 12)), module, Splitterburst::ON_LIGHT2));
+		addChild(createLight<MediumLight<XtrtnBlueLight>>(mm2px(Vec(28, 12)), module, Splitterburst::ON_LIGHT2));
 
 
 		
 		addParam(createParamCentered<CKSS>(mm2px(Vec(32, 100)), module, Splitterburst::MULTI64_PARAM));
 
-		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(12, 100)), module, Splitterburst::STEPS_PARAM));
-		addParam(createParamCentered<RoundBlackSnapKnob>(mm2px(Vec(24, 100)), module, Splitterburst::MULTI_PARAM));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(24, 90)), module, Splitterburst::MULTI_ATT));
-		addParam(createParamCentered<RoundSmallBlackKnob>(mm2px(Vec(12, 90)), module, Splitterburst::STEPS_ATT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(31, 80)), module, Splitterburst::MULTI_CV));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(5, 80)), module, Splitterburst::STEPS_CV));
+		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(12, 90)), module, Splitterburst::STEPS_PARAM));
+		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(24, 90)), module, Splitterburst::MULTI_PARAM));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(24, 80)), module, Splitterburst::MULTI_ATT));
+		addParam(createParamCentered<XtrtnSmallKnob>(mm2px(Vec(12, 80)), module, Splitterburst::STEPS_ATT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(31, 70)), module, Splitterburst::MULTI_CV));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(5, 70)), module, Splitterburst::STEPS_CV));
 		
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 35)), module, Splitterburst::CLOCK_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 50)), module, Splitterburst::TRIG_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18, 50)), module, Splitterburst::OFF_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(28, 50)), module, Splitterburst::TOG_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 64)), module, Splitterburst::STEP_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18, 35)), module, Splitterburst::GATE_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 25)), module, Splitterburst::CLOCK_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 40)), module, Splitterburst::TRIG_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18, 40)), module, Splitterburst::OFF_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(28, 40)), module, Splitterburst::TOG_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8, 54)), module, Splitterburst::STEP_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(18, 25)), module, Splitterburst::GATE_INPUT));
 		
 		
 		
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(28, 35)), module, Splitterburst::PLAIN_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(28, 64)), module, Splitterburst::GATE_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(18, 64)), module, Splitterburst::STEP_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(28, 25)), module, Splitterburst::PLAIN_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(28, 54)), module, Splitterburst::GATE_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(18, 54)), module, Splitterburst::STEP_OUTPUT));
 
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(12, 116)), module, Splitterburst::SOLO_OUTPUT));		
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(24, 116)), module, Splitterburst::CLOCK_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(18, 79)), module, Splitterburst::EOB_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(12, 111)), module, Splitterburst::SOLO_OUTPUT));		
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(24, 111)), module, Splitterburst::CLOCK_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(18, 69)), module, Splitterburst::EOB_OUTPUT));
 	}
 };
 
