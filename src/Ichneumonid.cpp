@@ -3,6 +3,7 @@
 
 struct Ichneumonid : Module {
 	enum ParamIds {
+		ALWAYS_PARAM,
 		U2UD2D_PARAM,
 		PROBABILITY_PARAM,
 		SELECT_PARAM,
@@ -24,6 +25,7 @@ struct Ichneumonid : Module {
 		NUM_OUTPUTS=GATE_OUTPUT+4
 	};
 	enum LightIds {
+		ALWAYS_LIGHT,
 		UUDD_LIGHT,
 		ENABLE_LIGHT,
 		SELECT_LIGHT=ENABLE_LIGHT+4,
@@ -37,9 +39,10 @@ struct Ichneumonid : Module {
 	bool bans[4]={false};
 	float prevs[4]={0};
 	bool uudd=false;
+	bool always=false;
 	int selection = 0;
 	float current = 0;
-	float tolerance = 0.05;
+	float tolerance = 0.01;
 
 	Ichneumonid() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
@@ -65,6 +68,8 @@ struct Ichneumonid : Module {
 
 			}
 		}
+
+		always=(params[ALWAYS_PARAM].getValue()>0);
 		uudd=(params[U2UD2D_PARAM].getValue()>0);
 		selection = params[SELECTION_PARAM].getValue();
 		current = inputs[INCOMING_INPUT+selection].getVoltage();
@@ -109,6 +114,7 @@ struct Ichneumonid : Module {
 
 
 		lights[UUDD_LIGHT].setBrightness(uudd);
+		lights[ALWAYS_LIGHT].setBrightness(always);
 
 		outputs[SWITCHED_OUTPUT].setVoltage((switchPulse.process(args.sampleTime) ? 10.0f : 0.0f));
 
@@ -150,6 +156,9 @@ struct Ichneumonid : Module {
 	}
 
 	bool test(int from, int to){
+		
+		if(always){return true;}
+
 		double probability = params[PROBABILITY_PARAM].getValue()*params[ARRIVAL_PARAM+to].getValue()*params[DEPARTURE_PARAM+from].getValue();
 		return random::uniform()<probability;
 	}
@@ -187,7 +196,9 @@ struct IchneumonidWidget : ModuleWidget {
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(30, 106)), module, Ichneumonid::TRUE_OUTPUT));	
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(50, 106)), module, Ichneumonid::SWITCHED_OUTPUT));	
 		addParam(createParamCentered<CKSS>(mm2px(Vec(47, 122)), module, Ichneumonid::U2UD2D_PARAM));
+		addParam(createParamCentered<CKSS>(mm2px(Vec(14, 122)), module, Ichneumonid::ALWAYS_PARAM));
 		addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(53, 120)), module, Ichneumonid::UUDD_LIGHT));
+		addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(8, 120)), module, Ichneumonid::ALWAYS_LIGHT));
 	}
 };
 

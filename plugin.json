@@ -63,8 +63,8 @@
     {
       "slug": "Ichneumonid",
       "name": "Ichneumonid",
-      "description": "Continuous Signal Switcher",
-      "tags": []
+      "description": "Switch randomly (or deterministically) between signals without creating discontinuities.",
+      "tags": ["Random","Mixer","Sequencer"]
     }
   ]
 }
