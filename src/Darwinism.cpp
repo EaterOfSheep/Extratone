@@ -18,8 +18,8 @@ struct Darwinism : Module {
 		ONOFF_PARAM,
 		NOTE_PARAM=ONOFF_PARAM+16,
 		SAVEDONOFF_PARAM=NOTE_PARAM+16,
-		SAVEDNOTE_PARAM=SAVEDONOFF_PARAM+16,
-		SNH_PARAM=SAVEDNOTE_PARAM+16,
+		SAVEDNOTE_PARAM=SAVEDONOFF_PARAM+16*16,
+		SNH_PARAM=SAVEDNOTE_PARAM+16*16,
 		NUM_PARAMS=SNH_PARAM+1
 	};
 	enum InputIds {
@@ -49,6 +49,9 @@ struct Darwinism : Module {
 	float range=1.f;
 	int step= 0;
 
+	float rightMessages[2][32]={};
+
+
 	dsp::PulseGenerator eopPulse;	
 	dsp::PulseGenerator trigPulse;	
 
@@ -56,9 +59,8 @@ struct Darwinism : Module {
 	dsp::SchmittTrigger randomTrigger;
 	dsp::SchmittTrigger clearTrigger;
 	dsp::SchmittTrigger stepTrigger;
-	dsp::SchmittTrigger saveTrigger;
-	dsp::SchmittTrigger loadTrigger;
-	dsp::SchmittTrigger onoffTrigger[16];
+	dsp::SchmittTrigger saveTrigger[16];
+	dsp::SchmittTrigger loadTrigger[16];
 	dsp::SchmittTrigger mutateTrigger;
 	dsp::SchmittTrigger resetTrigger;
 
@@ -71,6 +73,11 @@ struct Darwinism : Module {
 		configParam(MUTATIONRATE_PARAM, 0.f, 1.f, 0.5, "");
 		configParam(DENSITY_PARAM, 0.f, 1.f, 0.5, "");
 		configParam(RANGE_PARAM, 0.f, 8.f, 1, "");
+
+
+		rightExpander.producerMessage=rightMessages[0];
+
+		rightExpander.consumerMessage=rightMessages[1];
 	}
 
 	int viewmode = 0;
@@ -108,7 +115,7 @@ struct Darwinism : Module {
 			}
 		}
 
-		if(saveTrigger.process(params[SAVE_PARAM].getValue()+inputs[SAVE_INPUT].getVoltage())){
+		if(saveTrigger[0].process(params[SAVE_PARAM].getValue()+inputs[SAVE_INPUT].getVoltage(0))){
 			
 			for(int i = 0; i<16;i++){
 				params[SAVEDNOTE_PARAM + i].setValue(params[NOTE_PARAM +i].getValue());
@@ -117,12 +124,34 @@ struct Darwinism : Module {
 		}
 
 
-		if(loadTrigger.process(params[LOAD_PARAM].getValue()+inputs[LOAD_INPUT].getVoltage())){
+		if(loadTrigger[0].process(params[LOAD_PARAM].getValue()+inputs[LOAD_INPUT].getVoltage(0))){
 			
 			for(int i = 0; i<16;i++){
 				params[NOTE_PARAM + i].setValue(params[SAVEDNOTE_PARAM +i].getValue());
 				params[ONOFF_PARAM +i].setValue(params[SAVEDONOFF_PARAM +i].getValue());
 			}
+		}
+
+		for(int id = 0; id<16; id++){ //loop through all polyphonic channels
+
+			if(saveTrigger[id].process(params[SAVE_PARAM].getValue()+inputs[SAVE_INPUT].getVoltage(id))){
+			
+				for(int i = 0; i<16;i++){
+					params[SAVEDNOTE_PARAM +id*16 +i].setValue(params[NOTE_PARAM +i].getValue());
+					params[SAVEDONOFF_PARAM +id*16 +i].setValue(params[ONOFF_PARAM +i].getValue());
+				}
+			}
+
+
+			if(loadTrigger[id].process(params[LOAD_PARAM].getValue()+inputs[LOAD_INPUT].getVoltage(id))){
+			
+				for(int i = 0; i<16;i++){
+					params[NOTE_PARAM + i].setValue(params[SAVEDNOTE_PARAM +id*16+i].getValue());
+					params[ONOFF_PARAM +i].setValue(params[SAVEDONOFF_PARAM +id*16+i].getValue());
+				}
+			}
+
+
 		}
 
 		if(randomTrigger.process(params[RANDOM_PARAM].getValue()+inputs[RANDOM_INPUT].getVoltage())){

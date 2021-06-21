@@ -60,6 +60,7 @@ extern Model *modelOpabinia;
 extern Model *modelSplitterburst;
 extern Model *modelPuzzlebox;
 extern Model *modelDarwinism;
+extern Model *modelHalluciMemory;
 extern Model *modelIchneumonid;
 
 // Declare each Model, defined in each module source file

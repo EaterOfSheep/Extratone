@@ -64,7 +64,20 @@
       "slug": "Ichneumonid",
       "name": "Ichneumonid",
       "description": "Switch randomly (or deterministically) between signals without creating discontinuities.",
-      "tags": ["Random","Mixer","Sequencer","Utility"]
+      "tags": [
+        "Random",
+        "Mixer",
+        "Sequencer",
+        "Utility"
+      ]
+    },
+    {
+      "slug": "HalluciMemory",
+      "name": "HalluciMemory",
+      "description": "Memory expander for Hallucigenia",
+      "tags": [
+        "expander"
+      ]
     }
   ]
 }
