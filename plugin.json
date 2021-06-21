@@ -30,7 +30,8 @@
         "Drum",
         "Envelope generator",
         "Distortion",
-        "waveshaper"
+        "waveshaper",
+	"polyphonic"
       ]
     },
     {
@@ -57,7 +58,8 @@
       "description": "Evolving, mutating random sequencer with memory - ideal for generative patches!",
       "tags": [
         "Sequencer",
-        "Random"
+        "Random",
+	"Polyphonic"
       ]
     },
     {

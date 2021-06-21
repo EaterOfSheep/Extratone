@@ -155,11 +155,20 @@ struct Opabinia : Module {
 
 		wave=distort(wave,squareness,fold,foldnum);
 		
-
-
-		float sound = inputs[SOUND_INPUT].getVoltage()/5.f;
-		sound = distort(sound,squareness,fold,foldnum);
 		
+		float sound[16];
+
+		outputs[SOUND_OUTPUT].channels=inputs[SOUND_INPUT].channels;
+
+		for(int i = 0; i<16;i++){
+			sound[i] = inputs[SOUND_INPUT].getVoltage(i)/5.f;
+			sound[i] = distort(sound[i],squareness,fold,foldnum);
+			sound[i] = 5.f*sound[i];
+
+			outputs[SOUND_OUTPUT].setVoltage(sound[i],i);
+
+		}
+				
 		float aratio = std::pow(0.5, args.sampleTime*(1.f/adecay));
 		float fratio = std::pow(0.5, args.sampleTime*(1.f/fdecay));
 		amplitude = amplitude*aratio;
@@ -169,7 +178,6 @@ struct Opabinia : Module {
 		outputs[ADECAY_OUTPUT].setVoltage(5.f*amplitude);
 		outputs[FDECAY_OUTPUT].setVoltage(5.f*(freq-basefreq)/(peakfreq-basefreq));
 
-		outputs[SOUND_OUTPUT].setVoltage(5.f*sound);
 	
 	}
 };
