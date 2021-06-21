@@ -31,7 +31,7 @@
         "Envelope generator",
         "Distortion",
         "waveshaper",
-	"polyphonic"
+        "polyphonic"
       ]
     },
     {
@@ -59,7 +59,7 @@
       "tags": [
         "Sequencer",
         "Random",
-	"Polyphonic"
+        "Polyphonic"
       ]
     },
     {
@@ -74,11 +74,11 @@
       ]
     },
     {
-      "slug": "HalluciMemory",
-      "name": "HalluciMemory",
-      "description": "Memory expander for Hallucigenia",
+      "slug": "Meganeura",
+      "name": "Meganeura",
+      "description": "Carboniferous Tempo Multiplier",
       "tags": [
-        "expander"
+	      "Clock Modulator"
       ]
     }
   ]

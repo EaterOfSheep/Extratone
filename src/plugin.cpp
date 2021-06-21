@@ -14,8 +14,9 @@ void init(Plugin* p) {
 	p->addModel(modelSplitterburst);
 	p->addModel(modelPuzzlebox);
 	p->addModel(modelDarwinism);
-	p->addModel(modelHalluciMemory);
+//	p->addModel(modelHalluciMemory);
 	p->addModel(modelIchneumonid);
+	p->addModel(modelMeganeura);
 
 
 	// Any other plugin initialization may go here.
