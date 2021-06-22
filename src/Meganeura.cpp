@@ -192,7 +192,7 @@ struct MeganeuraWidget : ModuleWidget {
 		addParam(createParamCentered<TL1105>(mm2px(Vec(20,108)), module, Meganeura::FLIPPER_PARAM));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(30, 108)), module, Meganeura::FLIPPER_INPUT));
 
-		addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(32, 116)), module, Meganeura::BASE_LIGHT));
+		addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(18, 116)), module, Meganeura::BASE_LIGHT));
 		addParam(createParamCentered<CKSS>(mm2px(Vec(25, 116)), module, Meganeura::BASE_PARAM));
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(14, 25)), module, Meganeura::CLOCK_INPUT));

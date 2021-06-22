@@ -1,7 +1,7 @@
 {
   "slug": "Extratone",
   "name": "Extratone",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "license": "GPL-3.0-or-later",
   "brand": "XTRTN",
   "author": "Eater of Sheep",
@@ -77,7 +77,7 @@
     {
       "slug": "Meganeura",
       "name": "Meganeura",
-      "description": "Carboniferous Tempo Multiplier",
+      "description": "Tempo multipliers - ideal for making Speedcore.",
       "tags": [
 	      "Clock Modulator"
       ]
