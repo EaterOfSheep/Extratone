@@ -19,7 +19,8 @@
       "description": "Adjustable modulo operator for octave-stripping and waveshaping.",
       "tags": [
         "utility",
-        "waveshaper"
+        "waveshaper",
+	"polyphonic"
       ]
     },
     {

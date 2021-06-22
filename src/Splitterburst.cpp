@@ -93,8 +93,9 @@ struct Splitterburst : Module {
 	if(params[MULTI64_PARAM].getValue()){
 	multiply=multiply*4;
 	}
-	
+
 	wait++;
+	
 	timer++;
 	
 	if(goal!=0){
