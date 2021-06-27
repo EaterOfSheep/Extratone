@@ -1,7 +1,7 @@
 {
   "slug": "Extratone",
   "name": "Extratone",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "GPL-3.0-or-later",
   "brand": "XTRTN",
   "author": "Eater of Sheep",
@@ -69,9 +69,7 @@
       "description": "Switch randomly (or deterministically) between signals without creating discontinuities.",
       "tags": [
         "Random",
-        "Mixer",
-        "Sequencer",
-        "Utility"
+	"Switch"
       ]
     },
     {
