@@ -79,6 +79,14 @@
       "tags": [
 	      "Clock Modulator"
       ]
+    },
+    {
+      "slug": "Pureneura",
+      "name": "Mononeura",
+      "description": "Tempo multipliers - nothing else.",
+      "tags": [
+	      "Clock Modulator"
+      ]
     }
   ]
 }

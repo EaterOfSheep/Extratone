@@ -17,6 +17,7 @@ void init(Plugin* p) {
 //	p->addModel(modelHalluciMemory);
 	p->addModel(modelIchneumonid);
 	p->addModel(modelMeganeura);
+	p->addModel(modelPureneura);
 
 
 	// Any other plugin initialization may go here.
