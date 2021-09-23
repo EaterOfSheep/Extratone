@@ -72,10 +72,14 @@ struct Pureneura : Module {
 		timer1++;
 
 
+		bool basepulse=false;
+
 		if(clockTrigger.process(inputs[CLOCK_INPUT].getVoltage())){
 			goal1=timer1;
 			timer1=0;
+			basepulse=true;
 		}
+
 
 		float goal;
 		float timer;
@@ -83,19 +87,22 @@ struct Pureneura : Module {
 		goal=goal1;
 		timer=timer1;
 
+		if(basepulse){
 
-		for(int i = 0; i<4; i++){
+			for(int i = 0; i<4; i++){
 
-			if(based||gate[i]){
-				wait[i]=0;
-				outPulse[i].trigger();
+				if(based||gate[i]){
+					wait[i]=0;
+					outPulse[i].trigger();
 
+				}
 			}
-		}
 
-		for(int i = 0; i<3; i++){
-			pwait[i]=0;
-			prodPulse[i].trigger();
+			for(int i = 0; i<3; i++){
+				pwait[i]=0;
+				prodPulse[i].trigger();
+			}
+
 		}
 
 		if(timer!=0){
