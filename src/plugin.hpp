@@ -64,6 +64,7 @@ extern Model *modelDarwinism;
 extern Model *modelIchneumonid;
 extern Model *modelMeganeura;
 extern Model *modelPureneura;
+extern Model *modelMesoglea;
 
 // Declare each Model, defined in each module source file
 // extern Model* modelMyModule;
