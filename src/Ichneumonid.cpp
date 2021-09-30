@@ -33,7 +33,7 @@ struct Ichneumonid : Module {
 	};
 
 
-	dsp::PulseGenerator switchPulse;	
+	dsp::PulseGenerator switchPulse;
 	dsp::SchmittTrigger selectTrigger[4];
 
 	bool bans[4]={false};
@@ -92,7 +92,7 @@ struct Ichneumonid : Module {
 			if(i!=selection){
 
 				float other = inputs[INCOMING_INPUT+i].getVoltage();
-				
+
 				if(!inRange(other,current,tolerance*1.1)&&bans[i]){
 					bans[i]=false;
 				}
@@ -156,7 +156,7 @@ struct Ichneumonid : Module {
 	}
 
 	bool test(int from, int to){
-		
+
 		if(always){return true;}
 
 		double probability = params[PROBABILITY_PARAM].getValue()*params[ARRIVAL_PARAM+to].getValue()*params[DEPARTURE_PARAM+from].getValue();
@@ -170,10 +170,10 @@ struct IchneumonidWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Ichneumonid.svg")));
 
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 
 		for(int i = 0; i<4; i++){
@@ -181,20 +181,20 @@ struct IchneumonidWidget : ModuleWidget {
 			addChild(createLightCentered<MediumLight<XtrtnBlueLight>>(mm2px(Vec(10+10*i, 19)), module, Ichneumonid::SELECT_LIGHT+i));
 			addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(10+10*i, 14)), module, Ichneumonid::ENABLE_LIGHT+i));
 
-			addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 27)), module, Ichneumonid::INCOMING_INPUT+i));	
+			addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 27)), module, Ichneumonid::INCOMING_INPUT+i));
 			addParam(createParamCentered<TL1105>(mm2px(Vec(10+10*i,37)), module, Ichneumonid::SELECT_PARAM+i));
-			addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 47)), module, Ichneumonid::SELECT_INPUT+i));	
-			addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 57)), module, Ichneumonid::GATE_OUTPUT+i));	
+			addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 47)), module, Ichneumonid::SELECT_INPUT+i));
+			addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 57)), module, Ichneumonid::GATE_OUTPUT+i));
 
 			addParam(createParamCentered<XtrtnMedKnob>(mm2px(Vec(10+10*i,67)), module, Ichneumonid::ARRIVAL_PARAM+i));
 			addParam(createParamCentered<XtrtnMedKnob>(mm2px(Vec(10+10*i,77)), module, Ichneumonid::DEPARTURE_PARAM+i));
-			addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 87)), module, Ichneumonid::ENABLE_INPUT+i));	
+			addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10+10*i, 87)), module, Ichneumonid::ENABLE_INPUT+i));
 
 		}
 
 		addParam(createParamCentered<XtrtnKnob>(mm2px(Vec(10,107)), module, Ichneumonid::PROBABILITY_PARAM));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(30, 106)), module, Ichneumonid::TRUE_OUTPUT));	
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(50, 106)), module, Ichneumonid::SWITCHED_OUTPUT));	
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(30, 106)), module, Ichneumonid::TRUE_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(50, 106)), module, Ichneumonid::SWITCHED_OUTPUT));
 		addParam(createParamCentered<CKSS>(mm2px(Vec(47, 122)), module, Ichneumonid::U2UD2D_PARAM));
 		addParam(createParamCentered<CKSS>(mm2px(Vec(14, 122)), module, Ichneumonid::ALWAYS_PARAM));
 		addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(53, 120)), module, Ichneumonid::UUDD_LIGHT));

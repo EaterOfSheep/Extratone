@@ -48,7 +48,7 @@ struct Meganeura : Module {
 
 	Meganeura() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-		
+
 		for(int i = 0; i<4; i++){
 			configParam(MULTI_PARAM+i, 1, 8, 1, ""); } }
 
@@ -61,7 +61,7 @@ struct Meganeura : Module {
 		lights[CLOCK1_LIGHT].setBrightness(!flipped);
 		lights[CLOCK2_LIGHT].setBrightness(flipped);
 		lights[BASE_LIGHT].setBrightness(based);
-		
+
 		for(int i = 0; i<4; i++){
 
 			gate[i]=(!inputs[GATE_INPUT+i].isConnected()||inputs[GATE_INPUT+i].getVoltage()>=5.f);
@@ -74,7 +74,7 @@ struct Meganeura : Module {
 		for(int i = 0; i<3; i++){
 			pwait[i]++;
 		}
-		
+
 		timer1++;
 		timer2++;
 
@@ -153,7 +153,7 @@ struct Meganeura : Module {
 
 						divide = divide*params[MULTI_PARAM+i].getValue();
 					}
-					
+
 				}
 
 				if(pwait[p]*divide>goal){
@@ -184,10 +184,10 @@ struct MeganeuraWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Meganeura.svg")));
 
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 		addParam(createParamCentered<TL1105>(mm2px(Vec(20,108)), module, Meganeura::FLIPPER_PARAM));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(30, 108)), module, Meganeura::FLIPPER_INPUT));
@@ -201,7 +201,7 @@ struct MeganeuraWidget : ModuleWidget {
 		addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(35, 25)), module, Meganeura::CLOCK2_LIGHT));
 
 		for(int i = 0; i<4; i++){
-			
+
 			float top = 42.f;
 			float gap = 12.f;
 

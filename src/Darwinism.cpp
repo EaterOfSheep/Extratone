@@ -52,8 +52,8 @@ struct Darwinism : Module {
 	float rightMessages[2][32]={};
 
 
-	dsp::PulseGenerator eopPulse;	
-	dsp::PulseGenerator trigPulse;	
+	dsp::PulseGenerator eopPulse;
+	dsp::PulseGenerator trigPulse;
 
 	dsp::SchmittTrigger snhTrigger;
 	dsp::SchmittTrigger randomTrigger;
@@ -116,7 +116,7 @@ struct Darwinism : Module {
 		}
 
 		if(saveTrigger[0].process(params[SAVE_PARAM].getValue()+inputs[SAVE_INPUT].getVoltage(0))){
-			
+
 			for(int i = 0; i<16;i++){
 				params[SAVEDNOTE_PARAM + i].setValue(params[NOTE_PARAM +i].getValue());
 				params[SAVEDONOFF_PARAM +i].setValue(params[ONOFF_PARAM +i].getValue());
@@ -125,7 +125,7 @@ struct Darwinism : Module {
 
 
 		if(loadTrigger[0].process(params[LOAD_PARAM].getValue()+inputs[LOAD_INPUT].getVoltage(0))){
-			
+
 			for(int i = 0; i<16;i++){
 				params[NOTE_PARAM + i].setValue(params[SAVEDNOTE_PARAM +i].getValue());
 				params[ONOFF_PARAM +i].setValue(params[SAVEDONOFF_PARAM +i].getValue());
@@ -135,7 +135,7 @@ struct Darwinism : Module {
 		for(int id = 0; id<16; id++){ //loop through all polyphonic channels
 
 			if(saveTrigger[id].process(params[SAVE_PARAM].getValue()+inputs[SAVE_INPUT].getVoltage(id))){
-			
+
 				for(int i = 0; i<16;i++){
 					params[SAVEDNOTE_PARAM +id*16 +i].setValue(params[NOTE_PARAM +i].getValue());
 					params[SAVEDONOFF_PARAM +id*16 +i].setValue(params[ONOFF_PARAM +i].getValue());
@@ -144,7 +144,7 @@ struct Darwinism : Module {
 
 
 			if(loadTrigger[id].process(params[LOAD_PARAM].getValue()+inputs[LOAD_INPUT].getVoltage(id))){
-			
+
 				for(int i = 0; i<16;i++){
 					params[NOTE_PARAM + i].setValue(params[SAVEDNOTE_PARAM +id*16+i].getValue());
 					params[ONOFF_PARAM +i].setValue(params[SAVEDONOFF_PARAM +id*16+i].getValue());
@@ -155,7 +155,7 @@ struct Darwinism : Module {
 		}
 
 		if(randomTrigger.process(params[RANDOM_PARAM].getValue()+inputs[RANDOM_INPUT].getVoltage())){
-				
+
 			for (int i = 0; i < 16; i++) {
 
 				randomiseStep(i);
@@ -164,7 +164,7 @@ struct Darwinism : Module {
 		}
 
 
-		if(mutateTrigger.process(params[MUTATE_PARAM].getValue()+inputs[MUTATE_INPUT].getVoltage())){	
+		if(mutateTrigger.process(params[MUTATE_PARAM].getValue()+inputs[MUTATE_INPUT].getVoltage())){
 			float mutationrate=params[MUTATIONRATE_PARAM].getValue();
 			for (int i = 0; i < 16; i++) {
 				if(random::uniform()<mutationrate){
@@ -174,7 +174,7 @@ struct Darwinism : Module {
 		}
 
 		if(clearTrigger.process(params[ZERO_PARAM].getValue()+inputs[ZERO_INPUT].getVoltage()  )){
-			
+
 			for (int i = 0; i < 16; i++) {
 				params[NOTE_PARAM + i].setValue(0.f);
 				params[ONOFF_PARAM + i].setValue(0.f);
@@ -193,7 +193,7 @@ struct Darwinism : Module {
 			if(viewmode==2){
 				lights[STEP_LIGHT + i].setBrightness(params[NOTE_PARAM+i].getValue());
 			}
-			
+
 		}
 
 		if(!params[SNH_PARAM].getValue()&&!inputs[SNH_INPUT].isConnected()){
@@ -233,14 +233,14 @@ struct DarwinismWidget : ModuleWidget {
 
 		addParam(createParamCentered<CKSS>(mm2px(Vec(54, 117)), module, Darwinism::SNH_PARAM));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 48)), module, Darwinism::ZERO_INPUT));	
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 58)), module, Darwinism::RANDOM_INPUT));	
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 68)), module, Darwinism::MUTATE_INPUT));	
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 78)), module, Darwinism::RESET_INPUT));	
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(49, 48)), module, Darwinism::SAVE_INPUT));	
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(49, 58)), module, Darwinism::LOAD_INPUT));	
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 48)), module, Darwinism::ZERO_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 58)), module, Darwinism::RANDOM_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 68)), module, Darwinism::MUTATE_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(20, 78)), module, Darwinism::RESET_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(49, 48)), module, Darwinism::SAVE_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(49, 58)), module, Darwinism::LOAD_INPUT));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(16, 117)), module, Darwinism::SNH_INPUT));	
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(16, 117)), module, Darwinism::SNH_INPUT));
 
 
 		addParam(createParam<XtrtnKnob>(mm2px(Vec(21,101)), module, Darwinism::DENSITY_PARAM));
@@ -252,24 +252,24 @@ struct DarwinismWidget : ModuleWidget {
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(28.25, 23.25)), module, Darwinism::GATE_OUTPUT));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(48.75, 23.25)), module, Darwinism::NOTE_OUTPUT));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(28.25, 38.25)), module, Darwinism::CLOCK_INPUT));	
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(28.25, 38.25)), module, Darwinism::CLOCK_INPUT));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(38.5, 38.25)), module, Darwinism::STEP_OUTPUT));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(48.75, 38.25)), module, Darwinism::EOP_OUTPUT));
 
 		int id=0;
 		for(int y = 0;y<4;y++){
 			for(int x=0;x<4;x++){
-				
+
 				addChild(createLight<MediumLight<XtrtnBlueLight>>(mm2px(Vec(3+5*x, 16+7*y)), module, Darwinism::STEP_LIGHT+id));
 
 				id++;
 			}
 		}
 
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 	}
 };
 

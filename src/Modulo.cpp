@@ -19,7 +19,7 @@ struct Modulo : Module {
 	enum LightIds {
 		NUM_LIGHTS
 	};
-	
+
 	Modulo() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 		configParam(MODULO_PARAM, 1, 5, 1, "");
@@ -28,15 +28,15 @@ struct Modulo : Module {
 	}
 
 	void process(const ProcessArgs& args) override {
-	
-		float pitch[16]; 
+
+		float pitch[16];
 		float mod = params[MODULO_PARAM].getValue();
 		float off = params[OFF_PARAM].getValue()*mod;
-		
+
 		if(inputs[OFF_INPUT].isConnected()){
 			off = inputs[OFF_INPUT].getVoltage()/5;
 		}
-			
+
 		outputs[MODULO_OUTPUT].channels=inputs[PITCH_INPUT].channels;
 
 		for(int i = 0; i<16; i++){
@@ -51,11 +51,11 @@ struct Modulo : Module {
 
 			pitch[i] = ((pitch[i] > 0) - (pitch[i] < 0))*pitchpos;
 			outputs[MODULO_OUTPUT].setVoltage(pitch[i],i);
-			
+
 		}
 
 	}
-	
+
 };
 
 
@@ -64,11 +64,11 @@ struct ModuloWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Modulo.svg")));
 
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 		addParam(createParamCentered<XtrtnSnapKnob>(mm2px(Vec(10, 46)), module, Modulo::MODULO_PARAM));
-		
+
 		addParam(createParamCentered<XtrtnMedKnob>(mm2px(Vec(10, 67)), module, Modulo::OFF_PARAM));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10, 77)), module, Modulo::OFF_INPUT));
 

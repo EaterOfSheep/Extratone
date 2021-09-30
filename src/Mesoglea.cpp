@@ -32,7 +32,7 @@ struct Mesoglea : Module {
 
 	dsp::SchmittTrigger modeTrigger;
 	dsp::SchmittTrigger flipTrigger[16];
-	
+
 	Mesoglea() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
@@ -50,7 +50,7 @@ struct Mesoglea : Module {
 
 				params[MODE_PARAM].setValue(0);
 
-			} 
+			}
 		}
 
 		int mode = params[MODE_PARAM].getValue();
@@ -134,7 +134,7 @@ struct Mesoglea : Module {
 		}
 		return false;
 	}
-	
+
 };
 
 
@@ -143,10 +143,10 @@ struct MesogleaWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Mesoglea.svg")));
 
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 		int modey = 36;
 		int modex = 8;
@@ -180,7 +180,7 @@ struct MesogleaWidget : ModuleWidget {
 			}
 		}
 
-		
+
 
 	}
 };

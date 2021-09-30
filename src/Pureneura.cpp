@@ -41,7 +41,7 @@ struct Pureneura : Module {
 
 	Pureneura() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-		
+
 		for(int i = 0; i<4; i++){
 			configParam(MULTI_PARAM+i, 1, 8, 1, ""); } }
 
@@ -55,7 +55,7 @@ struct Pureneura : Module {
 
 
 		lights[BASE_LIGHT].setBrightness(based);
-		
+
 		for(int i = 0; i<4; i++){
 
 			gate[i]=(!inputs[GATE_INPUT+i].isConnected()||inputs[GATE_INPUT+i].getVoltage()>=5.f);
@@ -68,7 +68,7 @@ struct Pureneura : Module {
 		for(int i = 0; i<3; i++){
 			pwait[i]++;
 		}
-		
+
 		timer1++;
 
 
@@ -126,7 +126,7 @@ struct Pureneura : Module {
 
 						divide = divide*params[MULTI_PARAM+i].getValue();
 					}
-					
+
 				}
 
 				if(pwait[p]*divide>goal){
@@ -157,10 +157,10 @@ struct PureneuraWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Pureneura.svg")));
 
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+		addChild(createWidget<XtrtnScrew>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+		addChild(createWidget<XtrtnScrew>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 		addChild(createLightCentered<MediumLight<XtrtnPinkLight>>(mm2px(Vec(12, 114)), module, Pureneura::BASE_LIGHT));
 		addParam(createParamCentered<CKSS>(mm2px(Vec(19, 114)), module, Pureneura::BASE_PARAM));
@@ -169,7 +169,7 @@ struct PureneuraWidget : ModuleWidget {
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(24, 18)), module, Pureneura::CLOCK_INPUT));
 
 		for(int i = 0; i<4; i++){
-			
+
 			float top = 39.f;
 			float gap = 12.f;
 
