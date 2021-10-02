@@ -8,7 +8,6 @@ using namespace rack;
 extern Plugin* pluginInstance;
 
 
-// Random rotation screw code by stoermelder (found on cvly plugin)
 struct XtrtnScrew : app::SvgScrew
 {
 	widget::TransformWidget *tw;
@@ -21,11 +20,18 @@ struct XtrtnScrew : app::SvgScrew
 		tw->addChild(sw);
 		fb->addChild(tw);
 
-		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/screw.svg")));
+		bool pink = (random::uniform()>0.5); //random uniform is between 0 and 1
+		if(pink){
+			setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/screw2.svg")));
+		}else{
+			setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/screw.svg")));
+		}
 
 		tw->box.size = sw->box.size;
 		box.size = tw->box.size;
 
+
+		// Random rotation screw code by stoermelder (found on cvly plugin)
 		float angle = random::uniform() * M_PI;
 		tw->identity();
 		// Rotate SVG

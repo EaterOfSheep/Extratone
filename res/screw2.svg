@@ -8,7 +8,7 @@
    version="1.1"
    id="svg18800"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="screw.svg"
+   sodipodi:docname="screw2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -60,25 +60,25 @@
      id="layer1"
      transform="translate(-30.138143,-67.088277)">
     <circle
-       style="fill:#3d5f58;fill-opacity:0.99724001;stroke-width:0.281854"
+       style="fill:#573d5f;fill-opacity:0.99724001;stroke-width:0.281854"
        id="path741-36"
        cx="32.113144"
        cy="69.063278"
        r="1.825" />
     <circle
-       style="fill:#477369;fill-opacity:0.99724001;stroke-width:0.235522"
+       style="fill:#684773;fill-opacity:0.99724001;stroke-width:0.235522"
        id="path741"
        cx="32.128143"
        cy="69.078278"
        r="1.525" />
     <circle
-       style="fill:#4f8481;fill-opacity:1;stroke-width:0.19358"
+       style="fill:#774f84;fill-opacity:1;stroke-width:0.19358"
        id="path741-3"
        cx="32.135529"
        cy="69.077782"
        r="1.2534246" />
     <circle
-       style="fill:#5a9593;fill-opacity:1;stroke-width:0.154864"
+       style="fill:#865a95;fill-opacity:1;stroke-width:0.154864"
        id="path741-3-1"
        cx="32.136497"
        cy="69.086639"
