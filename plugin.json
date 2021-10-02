@@ -97,6 +97,25 @@
 	      "Utility",
 	      "Polyphonic"
       ]
+    },
+    {
+      "slug": "Mesohyl",
+      "name": "Mesohyl",
+      "description": "Easy knobs with built-in S&H powers.",
+      "tags": [
+	      "Sample and hold",
+	      "Utility",
+	      "Controller"
+      ]
+    },
+
+    {
+      "slug": "XtrtnBlank",
+      "name": "Heraldry",
+      "description": "3600BPM Cult. Esoteric meme heraldry.",
+      "tags": [
+	      "Blank"
+      ]
     }
 
   ]

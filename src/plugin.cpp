@@ -19,6 +19,10 @@ void init(Plugin* p) {
 	p->addModel(modelIchneumonid);
 	p->addModel(modelMeganeura);
 	p->addModel(modelPureneura);
+	p->addModel(modelMesohyl);
+
+
+	p->addModel(modelXtrtnBlank);
 
 
 	// Any other plugin initialization may go here.

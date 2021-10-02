@@ -93,6 +93,10 @@ extern Model *modelIchneumonid;
 extern Model *modelMeganeura;
 extern Model *modelPureneura;
 extern Model *modelMesoglea;
+extern Model *modelMesohyl;
+
+
+extern Model *modelXtrtnBlank;
 
 // Declare each Model, defined in each module source file
 // extern Model* modelMyModule;
