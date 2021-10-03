@@ -145,8 +145,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="139.65359"
-     inkscape:cy="314.66251"
+     inkscape:cx="127.63277"
+     inkscape:cy="314.66252"
      inkscape:document-units="mm"
      inkscape:current-layer="layer4"
      showgrid="false"
@@ -372,7 +372,10 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-0.02065398,-0.01120977)"
        id="text18832"
-       style="line-height:1.25;font-family:'URW Bookman';font-size:26.66667591px;-inkscape-font-specification:'URW Bookman, Semi-Bold';font-weight:600;white-space:pre;shape-inside:url(#rect18834);font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal" />
+       style="line-height:1.25;font-family:'URW Bookman';font-size:26.66667591px;-inkscape-font-specification:'URW Bookman, Semi-Bold';font-weight:600;white-space:pre;shape-inside:url(#rect18834);font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
+         sodipodi:role="line"
+         id="tspan18836"
+         style="-inkscape-font-specification:'URW Bookman, Semi-Bold';font-family:'URW Bookman';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:26.66667591px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'URW Bookman';-inkscape-font-specification:'URW Bookman, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
@@ -390,7 +393,8 @@
          y="29.723028"
          id="tspan33100" /></text>
     <g
-       aria-label="AND OR"
+       aria-label="AND
+OR"
        id="text39798"
        style="font-weight:bold;font-size:2.82222px;line-height:1.85;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';stroke-width:0.264583"
        transform="translate(0.52916667,0.52916667)">
@@ -419,7 +423,9 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-0.02065398,-0.01120977)"
        id="text52444"
-       style="line-height:1.25;font-family:'URW Gothic';font-size:13.3333416px;-inkscape-font-specification:'URW Gothic, Bold';font-weight:bold;white-space:pre;shape-inside:url(#rect52446)" />
+       style="line-height:1.25;font-family:'URW Gothic';font-size:13.3333416px;-inkscape-font-specification:'URW Gothic, Bold';font-weight:bold;white-space:pre;shape-inside:url(#rect52446)"><tspan
+         sodipodi:role="line"
+         id="tspan52448"></tspan></text>
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';stroke-width:0.264583;fill:#ffffff"
@@ -435,7 +441,9 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-0.02065398,-0.01120977)"
        id="text85660"
-       style="line-height:1.25;font-family:'URW Gothic';font-size:13.3333416px;-inkscape-font-specification:'URW Gothic, Bold';font-weight:bold;white-space:pre;shape-inside:url(#rect85662)" />
+       style="line-height:1.25;font-family:'URW Gothic';font-size:13.3333416px;-inkscape-font-specification:'URW Gothic, Bold';font-weight:bold;white-space:pre;shape-inside:url(#rect85662)"><tspan
+         sodipodi:role="line"
+         id="tspan85664"></tspan></text>
     <g
        aria-label="RANGE"
        id="text95818"
@@ -457,33 +465,22 @@
          d="m 18.536286,120.42635 h 1.120421 v -0.36971 H 18.92293 v -0.48542 h 0.702733 v -0.36971 H 18.92293 v -0.49107 h 0.733777 v -0.36971 h -1.120421 z"
          id="path107946" />
     </g>
-    <g
-       aria-label="BI
-UNI"
-       id="text4731"
-       style="font-weight:bold;font-size:2.82222px;line-height:1.65;font-family:'Old English Five';-inkscape-font-specification:'Old English Five Bold';stroke-width:0.264583"
-       transform="translate(-2.6458334)">
-      <path
-         d="m 33.003572,113.58433 h 0.555977 c 0.231422,0 0.400755,-0.0367 0.527755,-0.11571 0.172156,-0.10443 0.270933,-0.29069 0.270933,-0.50518 0,-0.13265 -0.03669,-0.25682 -0.1016,-0.34149 -0.05927,-0.079 -0.118533,-0.11853 -0.253999,-0.17498 0.169333,-0.0875 0.231422,-0.19473 0.231422,-0.39229 0,-0.19473 -0.08467,-0.35842 -0.237067,-0.45437 -0.124177,-0.079 -0.254,-0.1016 -0.564444,-0.1016 h -0.428977 z m 0.386644,-0.36971 v -0.5334 h 0.183444 c 0.268111,0 0.395111,0.0875 0.395111,0.27093 0,0.18344 -0.115711,0.26247 -0.386644,0.26247 z m 0,-0.91158 v -0.42616 h 0.158044 c 0.2032,0 0.299156,0.0677 0.299156,0.21167 0,0.14958 -0.09878,0.21449 -0.333022,0.21449 z"
-         style="font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';fill:#ffffff"
-         id="path18619" />
-      <path
-         d="m 34.640459,113.58433 h 0.386644 v -2.08562 h -0.386644 z"
-         style="font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';fill:#ffffff"
-         id="path18621" />
-      <path
-         d="m 33.003572,116.32851 v 1.3208 c 0,0.22296 0.03387,0.36689 0.112889,0.49107 0.121355,0.19191 0.347133,0.31044 0.589844,0.31044 0.228599,0 0.440266,-0.1016 0.564444,-0.26811 0.09878,-0.13546 0.141111,-0.29069 0.141111,-0.5334 v -1.3208 h -0.386645 v 1.3208 c 0,0.15523 -0.01129,0.22014 -0.0508,0.28787 -0.05362,0.0875 -0.152399,0.14111 -0.26811,0.14111 -0.112889,0 -0.211667,-0.0536 -0.265289,-0.14111 -0.03951,-0.0677 -0.0508,-0.13264 -0.0508,-0.28787 v -1.3208 z"
-         style="font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';fill:#ffffff"
-         id="path18623" />
-      <path
-         d="m 34.809791,118.41413 h 0.386644 v -1.51553 l 0.872066,1.51553 h 0.4318 v -2.08562 h -0.386644 v 1.51836 l -0.8636,-1.51836 h -0.440266 z"
-         style="font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';fill:#ffffff"
-         id="path18625" />
-      <path
-         d="m 36.898233,118.41413 h 0.386644 v -2.08562 h -0.386644 z"
-         style="font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';fill:#ffffff"
-         id="path18627" />
-    </g>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:2.82222px;line-height:1.65;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic, Bold';stroke-width:0.264583"
+       x="31.070961"
+       y="113.40997"
+       id="text129610"><tspan
+         sodipodi:role="line"
+         style="font-size:2.82222px;fill:#ffffff;stroke-width:0.264583"
+         x="31.070961"
+         y="113.40997"
+         id="tspan129612">BI</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.82222px;fill:#ffffff;stroke-width:0.264583"
+         x="31.070961"
+         y="118.06664"
+         id="tspan135394">UNI</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
