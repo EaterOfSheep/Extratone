@@ -3,12 +3,6 @@
 
 struct Mesoglea2 : Module {
 
-//To add:
-//And and Or modes for Global SandH
-//Lights for un-updated knobs
-//Unupdated-count output (+1V for each unupdated knob)
-//Range knob, bipolar switch.
-
 
 	enum ParamIds {
 		ANDOR_PARAM,
@@ -38,11 +32,6 @@ struct Mesoglea2 : Module {
 	Mesoglea2() {
 
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-
-
-		for(int i = 0; i<5; i++){
-			//configParam(KNOB_PARAM+i, 0.f, 1.f, 0.5, "");
-		}
 
 	}
 
