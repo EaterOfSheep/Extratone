@@ -108,6 +108,17 @@
 	      "Controller"
       ]
     },
+    {
+      "slug": "Mesoglea2",
+      "name": "Mesoglea2",
+      "description": "Easy flippable gates/mutes with sample-and-hold.",
+      "tags": [
+	      "Sample and hold",
+	      "Utility",
+	      "Controller"
+      ]
+    },
+
 
     {
       "slug": "XtrtnBlank",

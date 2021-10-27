@@ -99,6 +99,7 @@ extern Model *modelIchneumonid;
 extern Model *modelMeganeura;
 extern Model *modelPureneura;
 extern Model *modelMesoglea;
+extern Model *modelMesoglea2;
 extern Model *modelMesohyl;
 
 

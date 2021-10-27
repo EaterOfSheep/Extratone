@@ -11,6 +11,7 @@ void init(Plugin* p) {
 	// p->addModel(modelMyModule);
 	p->addModel(modelModulo);
 	p->addModel(modelMesoglea);
+	p->addModel(modelMesoglea2);
 	p->addModel(modelOpabinia);
 	p->addModel(modelSplitterburst);
 	p->addModel(modelPuzzlebox);
