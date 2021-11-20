@@ -11,7 +11,7 @@
    viewBox="0 0 15 14.9989"
    enable-background="new 0 0 15 14.9989"
    xml:space="preserve"
-   sodipodi:docname="screw2.svg"
+   sodipodi:docname="screw3.svg"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -29,11 +29,11 @@
      spreadMethod="pad">
 	<stop
    offset="0.00559"
-   style="stop-color:#f57bcc;stop-opacity:1"
+   style="stop-color:#7bf5f5;stop-opacity:1"
    id="stop6727" />
 	<stop
    offset="1"
-   style="stop-color:#c261a2;stop-opacity:1"
+   style="stop-color:#61c2c2;stop-opacity:1"
    id="stop6729" />
 </linearGradient><linearGradient
      id="linearGradient4362"
@@ -96,11 +96,11 @@
    gradientTransform="matrix(0,1,1,0,-6469.8984,-219)">
 	<stop
    offset="0"
-   style="stop-color:#ab568f;stop-opacity:1"
+   style="stop-color:#56abab;stop-opacity:1"
    id="stop3" />
 	<stop
    offset="1"
-   style="stop-color:#8f4877;stop-opacity:1"
+   style="stop-color:#488f8f;stop-opacity:1"
    id="stop5" />
 </linearGradient>
 <circle
@@ -146,11 +146,11 @@
    xlink:href="#linearGradient4362">
 	<stop
    offset="0.00559"
-   style="stop-color:#eb76c4;stop-opacity:1"
+   style="stop-color:#76ebeb;stop-opacity:1"
    id="stop17" />
 	<stop
    offset="1"
-   style="stop-color:#cc66aa;stop-opacity:1"
+   style="stop-color:#66cccc;stop-opacity:1"
    id="stop19" />
 </linearGradient>
 <circle
@@ -168,6 +168,6 @@
    fill="#8c8c8c"
    d="M 10.96889,6.80997 9.00528,6.57471 C 8.70384,6.5386 8.46626,6.30092 8.43027,5.99947 L 8.19598,4.03719 C 8.18577,3.95166 8.11322,3.88726 8.02708,3.88726 H 6.97294 c -0.08613,0 -0.15867,0.06438 -0.16889,0.1499 L 6.56921,6.00056 C 6.53315,6.30204 6.29544,6.5397 5.99394,6.57569 L 4.03118,6.81003 C 3.94564,6.82024 3.88125,6.89279 3.88125,6.97893 v 1.0542 c 0,0.08613 0.06438,0.15866 0.1499,0.16889 l 1.96299,0.2348 C 6.29557,8.47287 6.5332,8.7105 6.56925,9.01193 l 0.23479,1.96293 c 0.01023,0.08552 0.08277,0.1499 0.16889,0.1499 h 1.0542 c 0.08612,0 0.15865,-0.06436 0.16889,-0.14986 L 8.43123,9.01172 C 8.46734,8.71033 8.70495,8.47277 9.00635,8.43673 l 1.96249,-0.2347 c 0.08552,-0.01023 0.1499,-0.08276 0.1499,-0.16889 V 6.97886 c 10e-6,-0.08611 -0.06435,-0.15864 -0.14985,-0.16889 z"
    id="path24"
-   style="stroke-width:1.00157479;stroke-miterlimit:4;stroke-dasharray:none;fill:#8c4675;fill-opacity:1" />
+   style="stroke-width:1.00157479;stroke-miterlimit:4;stroke-dasharray:none;fill:#468c8c;fill-opacity:1" />
 </g>
 </svg>

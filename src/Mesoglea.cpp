@@ -37,6 +37,7 @@ struct Mesoglea : Module {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
 		configParam(MODE_PARAM, 0.0, 1.0, 0.0);
+		configBypass(TOMUTE_INPUT,OUTPUT_OUTPUT);
 	}
 
 	void process(const ProcessArgs& args) override {

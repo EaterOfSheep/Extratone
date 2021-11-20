@@ -24,6 +24,7 @@ struct Modulo : Module {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 		configParam(MODULO_PARAM, 1, 5, 1, "");
 		configParam(OFF_PARAM, -1.f, 1.f, 0.f, "");
+		configBypass(PITCH_INPUT,MODULO_OUTPUT);
 
 	}
 

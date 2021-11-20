@@ -43,7 +43,11 @@ struct Pureneura : Module {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
 		for(int i = 0; i<4; i++){
-			configParam(MULTI_PARAM+i, 1, 8, 1, ""); } }
+			configParam(MULTI_PARAM+i, 1, 8, 1, "");
+			configBypass(CLOCK_INPUT,CLOCK_OUTPUT+i);
+			configBypass(CLOCK_INPUT,PRODUCT_OUTPUT+i);
+		}
+	}
 
 	void process(const ProcessArgs& args) override {
 

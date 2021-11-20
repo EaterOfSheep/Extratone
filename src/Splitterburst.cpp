@@ -43,6 +43,8 @@ struct Splitterburst : Module {
 		configParam(MULTI_PARAM, 1.f, 16.f, 2.f, "");
 		configParam(MULTI_ATT, -1.f, 1.f, 0.f, "");
 		configParam(STEPS_ATT, -1.f, 1.f, 0.f, "");
+		configBypass(CLOCK_INPUT,SOLO_OUTPUT);
+		configBypass(CLOCK_INPUT,CLOCK_OUTPUT);
 	}
 
 	dsp::PulseGenerator plainPulse;

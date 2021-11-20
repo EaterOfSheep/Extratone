@@ -20,11 +20,13 @@ struct XtrtnScrew : app::SvgScrew
 		tw->addChild(sw);
 		fb->addChild(tw);
 
-		bool pink = (random::uniform()>0.5); //random uniform is between 0 and 1
-		if(pink){
+		float colour = (random::uniform()); //random uniform is between 0 and 1
+		if(colour>0.66){
 			setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/screw2.svg")));
-		}else{
+		}else if(colour<0.33){
 			setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/screw.svg")));
+		}else{
+			setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/screw3.svg")));
 		}
 
 		tw->box.size = sw->box.size;

@@ -33,6 +33,11 @@ struct Mesoglea2 : Module {
 
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
+
+		for(int i = 0; i<5; i++){
+			configBypass(TOMUTE_INPUT+i,KOUT_OUTPUT+i);
+		}
+
 	}
 
 	void process(const ProcessArgs& args) override {

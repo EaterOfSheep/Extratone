@@ -72,6 +72,8 @@ struct Opabinia : Module {
 
 		configParam(FOLDN_PARAM, 1.f, 5.f, 1, "");
 
+		configBypass(SOUND_INPUT,SOUND_OUTPUT);
+
 
 	}
 
